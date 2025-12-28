@@ -67,9 +67,13 @@ public class main {
         System.out.println("D is Defend");
         System.out.println("H is Heal");
         System.out.println("*********************************");
+        input.nextLine();
 
         // ตัวแปรหาผู้ชนะ
         boolean winplayer1=false,winplayer2=false;
+
+        // โควต้าการฮิล
+        int healplayer1=3,healplayer2=3;
 
 
         // เริ่มเกม
@@ -80,12 +84,9 @@ public class main {
                 rang=(int)(Math.random() * 10) + 1;
                 player2.speed=rang;
             }
-            IO.println("Player1 Speed: "+player1.speed);
-            IO.println("Player2 Speed: "+player2.speed);
             System.out.println("P1 Action: ");
             String play1 = input.nextLine().toUpperCase();
-            input.nextLine();
-            System.out.println("P2 Action");
+            System.out.println("P2 Action:");
             String play2 = input.nextLine().toUpperCase();
             if (play1.equals("A")) {
                 int dam = player1.atk - (player2.def / player1.speed);
@@ -98,8 +99,8 @@ public class main {
                 player1.hp = player1.hp - dam;
             }
             if (play1.equals("D") && play2.equals("D")) {
-                IO.println("HP And ATK player 1: " + "HP : " + player1.hp);
-                IO.println("HP And ATK player 2: " + "HP : " + player2.hp);
+                IO.println("HP player 1: " + player1.hp);
+                IO.println("HP ATK player 2: "+ player2.hp);
                 continue;
             }
             if (play1.equals("D")) {
@@ -108,24 +109,30 @@ public class main {
                 player1.hp = player1.hp - dam;
             }
             if (play2.equals("D")) {
-                int dam = player1.atk*(player1.def/100);
+                int dam = player1.atk*(player2.def/100);
                 if (dam < 0) dam=1;
                 player2.hp = player2.hp - dam;
             }
-            if (play1.equals("H")) {
-                player1.hp*=(10/100);
+            if (play1.equals("H") && healplayer1 > 0) {
+                healplayer1--;
+                player1.hp+=50;
+                System.out.println("Hp : " + player1.hp);
+                System.out.println("Quota healing P1" + healplayer1 + "/3");
             }
-            if (play2.equals("H")) {
-                player2.hp*=(10/100);
+            if (play2.equals("H") && healplayer2 > 0) {
+                healplayer2--;
+                player2.hp+=50;
+                System.out.println("Hp : " + player2.hp);
+                System.out.println("Quota healing P2" + healplayer2 + "/3");
             }
             IO.println("HP And ATK player 1: " + "HP : " + player1.hp);
             IO.println("HP And ATK player 2: " + "HP : " + player2.hp);
-            if (player1.hp > player2.hp) {
-                winplayer1=true;
-            }
-            else if  (player2.hp > player1.hp) {
-                winplayer2=true;
-            }
+        }
+        if (player1.hp > player2.hp) {
+            winplayer1=true;
+        }
+        else if  (player2.hp > player1.hp) {
+            winplayer2=true;
         }
 
         // ประกาศผู้ชนะ
