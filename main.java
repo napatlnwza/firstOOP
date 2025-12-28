@@ -16,6 +16,7 @@ public class main {
         System.out.print("Player 1 : ");
         int character1=input.nextInt();
         System.out.print("Player 2 : ");
+        input.nextLine();
         int character2=input.nextInt();
 
         // ตรวจสอบประเภทตัวละคร 1
@@ -71,15 +72,13 @@ public class main {
 
 
         // เริ่มเกม
-        int i=0;
         while (player1.hp > 0 && player2.hp > 0) {
-            if (i>0) {
+            if (true) {
                 int rang=(int)(Math.random() * 10) + 1;
                 player1.speed=rang;
                 rang=(int)(Math.random() * 10) + 1;
                 player2.speed=rang;
             }
-            i++;
             IO.println("Player1 Speed: "+player1.speed);
             IO.println("Player2 Speed: "+player2.speed);
             String play1 = input.nextLine();
@@ -90,7 +89,7 @@ public class main {
                 player2.hp = player2.hp - dam;
             }
             if (play2.equals("A")) {
-                int dam = player1.atk - (player2.def / player1.speed);
+                int dam = player2.atk - (player1.def / player2.speed);
                 if (dam < 0) dam=1;
                 player1.hp = player1.hp - dam;
             }
