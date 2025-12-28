@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
+        character player1 = null;
+        character player2 = null;
 
         // รับประเภทตัวละคร
         Scanner input = new Scanner(System.in);
@@ -11,46 +13,73 @@ public class main {
         System.out.println("3.Assassin");
         System.out.println("4.Carry");
         System.out.println("5.Mage");
+        System.out.print("Player 1 : ");
         int character1=input.nextInt();
+        System.out.print("Player 2 : ");
         int character2=input.nextInt();
 
         // ตรวจสอบประเภทตัวละคร 1
         if (character1 == 1) {
-            fighter player1 = new fighter(); 
+            player1 = new fighter(); 
+            System.out.println("P1 is Fighter!");
         }
         else if (character1 == 2) {
-            tank player1 = new tank();
+            player1 = new tank();
+            System.out.println("P1 isTank!");
         }
         else if (character1 == 3) {
-            assassin player1 = new assassin();
+            player1 = new assassin();
+            System.out.println("P1 is Assassin!");
         }
         else if (character1 == 4) {
-            carry player1 = new carry();
+            player1 = new carry();
+            System.out.println("P1 is Carry!");
         }
         else if (character1 == 5) {
-            mage player1 = new mage();
+            player1 = new mage();
+            System.out.println("P1 is Mage!");
         }
         
         // ตรวจสอบประเภทตัวละคร 2
         if (character2 == 1) {
-            fighter player2 = new fighter();
+            player2 = new fighter();
+            System.out.println("P2 is Fighter!");
         }
         else if (character2 == 2) {
-            tank player2 = new tank();
+            player2 = new tank();
+            System.out.println("P2 is Tank!");
         }
         else if (character2 == 3) {
-            assassin player2 = new assassin();
+            player2 = new assassin();
+            System.out.println("P2 is Assassin!");
         }
         else if (character2 == 4) {
-            carry player2 = new carry();
+            player2 = new carry();
+            System.out.println("P2 is Carry!");
         }
         else if (character2 == 5) {
-            mage player2 = new mage();
+            player2 = new mage();
+            System.out.println("P2 is Mage!");
         }
+        System.out.println("*********************************");
+        System.out.println("A is Attack");
+        System.out.println("D is Defend");
+        System.out.println("*********************************");
 
         // ตัวแปรหาผู้ชนะ
         boolean winplayer1=false,winplayer2=false;
+
+
+        // เริ่มเกม
+        int i=0;
         while (player1.hp > 0 && player2.hp > 0) {
+            if (i>0) {
+                int rang=(int)(Math.random() * 10) + 1;
+                player1.speed=rang;
+                rang=(int)(Math.random() * 10) + 1;
+                player2.speed=rang;
+            }
+            i++;
             IO.println("Player1 Speed: "+player1.speed);
             IO.println("Player2 Speed: "+player2.speed);
             String play1 = input.nextLine();
@@ -89,6 +118,9 @@ public class main {
                 winplayer2=true;
             }
         }
+
+
+        // ประกาศผู้ชนะ
         if  (winplayer1) {
             System.out.println("Player 1 wins!");
         }

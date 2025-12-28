@@ -1,6 +1,8 @@
-public class mage {
-    public float hp = 115;
-    public int atk = 30;
-    public int def = 25;
-    public int speed = 20;
+public class mage extends character{
+    public mage() {
+        this.hp = 115;
+        this.atk = 30;
+        this.def = 25;
+        this.speed = 20;
+    }
 }

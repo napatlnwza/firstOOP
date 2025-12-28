@@ -1,6 +1,8 @@
-public class carry {
-    public float hp = 105;
-    public int atk = 40;
-    public int def = 20;
-    public int speed = 25;
+public class carry extends character{
+    public carry() {
+        this.hp = 105;
+        this.atk = 40;
+        this.def = 20;
+        this.speed = 25;
+    }
 }

@@ -1,6 +1,8 @@
-public class fighter {
-    public float hp=135;
-    public int atk=25;
-    public int def=35;
-    public int speed=20;
+public class fighter extends character{
+    public fighter() {
+        this.hp=135;
+        this.atk=25;
+        this.def=35;
+        this.speed=20;
+    }
 }

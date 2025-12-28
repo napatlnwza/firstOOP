@@ -1,6 +1,8 @@
-public class tank {
-    public float hp=150;
-    public int atk=20;
-    public int def=50;
-    public int speed=10;
+public class tank extends character{
+    public tank() {
+        this.hp=150;
+        this.atk=20;
+        this.def=50;
+        this.speed=10;
+    }
 }
