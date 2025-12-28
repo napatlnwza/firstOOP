@@ -65,6 +65,7 @@ public class main {
         System.out.println("*********************************");
         System.out.println("A is Attack");
         System.out.println("D is Defend");
+        System.out.println("H is Heal");
         System.out.println("*********************************");
 
         // ตัวแปรหาผู้ชนะ
@@ -73,7 +74,7 @@ public class main {
 
         // เริ่มเกม
         while (player1.hp > 0 && player2.hp > 0) {
-            if (true) {
+            while (player1.speed == player2.speed) {
                 int rang=(int)(Math.random() * 10) + 1;
                 player1.speed=rang;
                 rang=(int)(Math.random() * 10) + 1;
@@ -81,8 +82,11 @@ public class main {
             }
             IO.println("Player1 Speed: "+player1.speed);
             IO.println("Player2 Speed: "+player2.speed);
-            String play1 = input.nextLine();
-            String play2 = input.nextLine();
+            System.out.println("P1 Action: ");
+            String play1 = input.nextLine().toUpperCase();
+            input.nextLine();
+            System.out.println("P2 Action");
+            String play2 = input.nextLine().toUpperCase();
             if (play1.equals("A")) {
                 int dam = player1.atk - (player2.def / player1.speed);
                 if (dam < 0) dam=1;
@@ -99,14 +103,20 @@ public class main {
                 continue;
             }
             if (play1.equals("D")) {
-                int dam = player2.atk - (player1.def / player2.speed);
+                int dam = player2.atk*(player1.def/100);
                 if (dam < 0) dam=1;
                 player1.hp = player1.hp - dam;
             }
             if (play2.equals("D")) {
-                int dam = player1.atk - (player2.def / player1.speed);
+                int dam = player1.atk*(player1.def/100);
                 if (dam < 0) dam=1;
-                player1.hp = player1.hp - dam;
+                player2.hp = player2.hp - dam;
+            }
+            if (play1.equals("H")) {
+                player1.hp*=(10/100);
+            }
+            if (play2.equals("H")) {
+                player2.hp*=(10/100);
             }
             IO.println("HP And ATK player 1: " + "HP : " + player1.hp);
             IO.println("HP And ATK player 2: " + "HP : " + player2.hp);
