@@ -3,6 +3,5 @@ public class mage extends character{
         this.hp = 115;
         this.atk = 30;
         this.def = 25;
-        this.speed = 20;
     }
 }
