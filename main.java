@@ -119,7 +119,6 @@ public class main {
             }
         }
 
-
         // ประกาศผู้ชนะ
         if  (winplayer1) {
             System.out.println("Player 1 wins!");
