@@ -3,5 +3,6 @@ public class tank extends character{
         this.hp=150;
         this.atk=20;
         this.def=50;
+        this.speed=0;
     }
 }

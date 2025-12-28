@@ -3,5 +3,6 @@ public class fighter extends character{
         this.hp=135;
         this.atk=25;
         this.def=35;
+        this.speed=0;
     }
 }

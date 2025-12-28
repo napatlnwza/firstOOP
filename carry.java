@@ -3,5 +3,6 @@ public class carry extends character{
         this.hp = 105;
         this.atk = 40;
         this.def = 20;
+        this.speed = 0;
     }
 }
