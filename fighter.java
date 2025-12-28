@@ -1,6 +1,6 @@
 public class fighter {
-    public float hp=100;
-    public int atk=35;
-    public int def=20;
-    public int speed=10;
+    public float hp=135;
+    public int atk=25;
+    public int def=35;
+    public int speed=20;
 }
