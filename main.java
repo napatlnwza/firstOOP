@@ -88,30 +88,22 @@ public class main {
             String play1 = input.nextLine().toUpperCase();
             System.out.println("P2 Action:");
             String play2 = input.nextLine().toUpperCase();
-            if (play1.equals("A")) {
+            if (play1.equals("A") && play2.equals("D")) {
                 int dam = player1.atk - (player2.def / player1.speed);
                 if (dam < 0) dam=1;
-                player2.hp = player2.hp - dam;
+                int disdam=dam-player2.speed*(40/10);
+                player2.hp = player2.hp - dam + disdam;
             }
-            if (play2.equals("A")) {
+            if (play2.equals("A") && play2.equals("D")) {
                 int dam = player2.atk - (player1.def / player2.speed);
                 if (dam < 0) dam=1;
-                player1.hp = player1.hp - dam;
+                int disdam=dam-player2.speed*(40/100);
+                player1.hp = player1.hp - dam + disdam;
             }
             if (play1.equals("D") && play2.equals("D")) {
                 IO.println("HP player 1: " + player1.hp);
                 IO.println("HP ATK player 2: "+ player2.hp);
                 continue;
-            }
-            if (play1.equals("D")) {
-                int dam = player2.atk*(player1.def/100);
-                if (dam < 0) dam=1;
-                player1.hp = player1.hp - dam;
-            }
-            if (play2.equals("D")) {
-                int dam = player1.atk*(player2.def/100);
-                if (dam < 0) dam=1;
-                player2.hp = player2.hp - dam;
             }
             if (play1.equals("H") && healplayer1 > 0) {
                 healplayer1--;
