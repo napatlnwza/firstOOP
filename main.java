@@ -119,13 +119,13 @@ public class main {
                 healplayer1--;
                 player1.hp+=(player1.maxhp * 0.3);
                 System.out.println("Hp : " + player1.hp);
-                System.out.println("Quota healing P1" + healplayer1 + "/3");
+                System.out.println("Quota healing P1 : " + healplayer1 + "/3");
             }
             if (play2.equals("H") && healplayer2 > 0) {
                 healplayer2--;
                 player2.hp+=(player2.maxhp * 0.3);
                 System.out.println("Hp : " + player2.hp);
-                System.out.println("Quota healing P2" + healplayer2 + "/3");
+                System.out.println("Quota healing P2 : " + healplayer2 + "/3");
             }
             IO.println("HP player 1: " + "HP : " + player1.hp);
             IO.println("HP player 2: " + "HP : " + player2.hp);
