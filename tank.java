@@ -1,8 +1,9 @@
 public class tank extends character{
     public tank() {
-        this.hp=150;
-        this.atk=15;
+        this.hp=200;
+        this.atk=20;
         this.def=50;
         this.speed=0;
+        this.maxhp=250;
     }
 }

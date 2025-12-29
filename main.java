@@ -89,36 +89,46 @@ public class main {
             System.out.println("P2 Action:");
             String play2 = input.nextLine().toUpperCase();
             if (play1.equals("A") && play2.equals("D")) {
-                int dam = player1.atk - (player2.def / player1.speed);
+                double dam = 1.2*(player1.atk - (player2.def / player1.speed));
                 if (dam < 0) dam=1;
-                int disdam=dam-player2.speed*(40/10);
+                double disdam=dam-player2.speed*(0.9);
                 player2.hp = player2.hp - dam + disdam;
             }
-            if (play2.equals("A") && play2.equals("D")) {
-                int dam = player2.atk - (player1.def / player2.speed);
+            if (play2.equals("A") && play1.equals("D")) {
+                double dam = 1.2*(player2.atk - (player1.def / player2.speed));
                 if (dam < 0) dam=1;
-                int disdam=dam-player2.speed*(40/100);
+                double disdam=dam-player1.speed*(0.9);
                 player1.hp = player1.hp - dam + disdam;
             }
             if (play1.equals("D") && play2.equals("D")) {
                 IO.println("HP player 1: " + player1.hp);
-                IO.println("HP ATK player 2: "+ player2.hp);
+                IO.println("HP player 2: "+ player2.hp);
                 continue;
+            }
+            if (play1.equals("A") && play2.equals("A")) {
+                double damToP2 = 0.8 * (player1.atk - (player2.def / player1.speed));
+                damToP2 = Math.max(1, damToP2 - (player2.speed * 0.5));
+                player2.hp -= damToP2;
+
+                // P2 โจมตี P1
+                double damToP1 = 0.8 * (player2.atk - (player1.def / player2.speed));
+                damToP1 = Math.max(1, damToP1 - (player1.speed * 0.5));
+                player1.hp -= damToP1;
             }
             if (play1.equals("H") && healplayer1 > 0) {
                 healplayer1--;
-                player1.hp+=50;
+                player1.hp+=(player1.maxhp * 0.3);
                 System.out.println("Hp : " + player1.hp);
                 System.out.println("Quota healing P1" + healplayer1 + "/3");
             }
             if (play2.equals("H") && healplayer2 > 0) {
                 healplayer2--;
-                player2.hp+=50;
+                player2.hp+=(player2.maxhp * 0.3);
                 System.out.println("Hp : " + player2.hp);
                 System.out.println("Quota healing P2" + healplayer2 + "/3");
             }
-            IO.println("HP And ATK player 1: " + "HP : " + player1.hp);
-            IO.println("HP And ATK player 2: " + "HP : " + player2.hp);
+            IO.println("HP player 1: " + "HP : " + player1.hp);
+            IO.println("HP player 2: " + "HP : " + player2.hp);
         }
         if (player1.hp > player2.hp) {
             winplayer1=true;
